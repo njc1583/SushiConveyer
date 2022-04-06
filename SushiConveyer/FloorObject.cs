@@ -8,6 +8,6 @@ namespace SushiConveyer
 {
     internal abstract class FloorObject
     {
-        
+        public Direction Rotation { get; protected set; }
     }
 }

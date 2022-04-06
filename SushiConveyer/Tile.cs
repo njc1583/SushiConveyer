@@ -8,18 +8,46 @@ namespace SushiConveyer
 {
     internal class Tile
     {
-        private Coordinate _coordinate { get; }
-        private bool _isPassible { get; set; } = true;
-        private FloorObject _floorObject { get; } = null;
+        public Coordinate coordinate { get; }
+        public bool isPassible { get; private set; } = true;
+
+        public bool hasObject { get; private set; } = false;
+        public FloorObject floorObject { get; private set; } = null;
 
         public Tile(int X, int Y)
         {
-            _coordinate = new Coordinate(X, Y);
+            coordinate = new Coordinate(X, Y);
         }
 
         public Tile(Coordinate coordinate)
         {
-            _coordinate = new Coordinate(coordinate);
+            this.coordinate = new Coordinate(coordinate);
+        }
+
+        public bool PlaceObject(FloorObject floorObject)
+        {
+            if (this.floorObject == null)
+            {
+                return false;
+            }
+
+            this.floorObject = floorObject;
+            this.hasObject = true;
+            this.isPassible = false;
+            return true;
+        } 
+
+        public bool RemoveObject()
+        {
+            if (this.floorObject != null)
+            {
+                return false;
+            }
+
+            this.floorObject = null;
+            this.hasObject = false;
+            this.isPassible = true;
+            return true;
         }
     }
 }

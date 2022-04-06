@@ -33,14 +33,14 @@ namespace SushiConveyer
                 case Direction.UP:
                     Y++;
                     break;
-                case Direction.LEFT:
-                    X--;
+                case Direction.RIGHT:
+                    X++;
                     break;
                 case Direction.DOWN:
                     Y--;
                     break;
-                case Direction.RIGHT:
-                    X++;
+                case Direction.LEFT:
+                    X--;
                     break;
                 case Direction.UNDEFINED:
                 default:
@@ -89,11 +89,9 @@ namespace SushiConveyer
             {
                 return false;
             }
-            else
-            {
-                Coordinate other = (Coordinate)obj;
-                return this.X == other.X && this.Y == other.Y;
-            }
+
+            Coordinate other = (Coordinate)obj;
+            return this.X == other.X && this.Y == other.Y;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SushiConveyer
 {
-    enum Direction
+    public enum Direction
     {
         UP,
         LEFT,

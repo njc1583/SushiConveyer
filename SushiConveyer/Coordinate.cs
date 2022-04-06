@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SushiConveyer
 {
-    internal class Coordinate
+    public class Coordinate
     {
         public int X { get; private set; }
         public int Y { get; private set; }
